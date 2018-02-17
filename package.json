@@ -1,0 +1,32 @@
+{
+  "name": "csfp_node_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Kanulka Chowdary Manukonda",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-bearer-token": "^2.1.1",
+    "json2xls": "^0.1.2",
+    "jsonwebtoken": "^8.1.0",
+    "mysql": "^2.15.0",
+    "node-excel-export": "^1.4.2",
+    "node-table-to-csv": "^0.1.0",
+    "server": "^1.0.17",
+    "shuffle-array": "^1.0.1",
+    "table2csv": "^1.0.0",
+    "table2excel": "^1.0.4",
+    "tableexport": "^5.0.0",
+    "unique-random": "^1.0.0",
+    "xlsx": "^0.11.19"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}

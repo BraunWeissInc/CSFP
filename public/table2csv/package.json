@@ -1,0 +1,51 @@
+{
+  "_from": "table2csv",
+  "_id": "table2csv@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-LRQe+LgOu6GinllVXOl3WK8flp4=",
+  "_location": "/table2csv",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "table2csv",
+    "name": "table2csv",
+    "escapedName": "table2csv",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/table2csv/-/table2csv-1.0.0.tgz",
+  "_shasum": "2d141ef8b80ebba1a29e59555ce97758af1f969e",
+  "_spec": "table2csv",
+  "_where": "/Users/kanulkamanukonda/Desktop/csfpproject/test",
+  "author": {
+    "name": "OmbraDiFenice"
+  },
+  "bugs": {
+    "url": "https://github.com/OmbraDiFenice/table2csv/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A simple jQuery plugin to convert HTML tables to CSV",
+  "homepage": "https://ombradifenice.github.io/table2csv/",
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "license": "GPL-3.0",
+  "main": "src/table2csv.js",
+  "name": "table2csv",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmbraDiFenice/table2csv.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

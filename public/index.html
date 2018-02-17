@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSFP Access</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+
+    </head>
+    <body>
+        <div class='container' id="container">
+          <div class="slideshow-container">
+            <div  class="mySlides fade">
+              <img src="slider5.jpg" style="width:100%">
+              <div class="centered"><h1>Centre Street Food Pantry</h1></div>
+            </div>
+
+            <div class="mySlides fade">
+              <img src="120319-FA-Boston-1149_2.jpg" style="width:100%">
+              <div class="centered"><h1>Centre Street Food Pantry</h1></div>
+            </div>
+
+            <div class="mySlides fade">
+              <img src="Food_Pantry_Fresh_Produce.jpg" style="width:100%">
+              <div class="centered"><h1>Centre Street Food Pantry</h1></div>
+            </div>
+
+          </div>
+          <br>
+          <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+            <!-- <div id="header">
+                <div id="img"><img src="logo.png"></div>
+                <div id="T"><h1>Centre Street Food Pantry</h1></div>
+            </div> -->
+            <div id="select" class="nav-center">
+              <ul class="nav nav-pills">
+                <li id="Admin" ><a class="button"  href="#">AdminPage</a></li>
+                <li id="customer"><a class="button" href="#">Shopper</a></li>
+              </ul>
+            </div>
+            <div id="login">
+                <form method="get" id="myform">
+                    <p>First Name <input type="text" id="FirstName"></p>
+                    <p>Last Name <input type="text" id="LastName"></p>
+                    <button type="submit" value="Submit" id="submit" class="button">Submit</button>
+                </form>
+            </div>
+            <div id="AdminPage">
+                <form method="get" id="adminLogin">
+                    <p>UserName <input type="text" id="UserName"></p>
+                    <p>Password <input type="password" id="Password"></p>
+                    <button type="submit" value="Submit" id="adminSubmit" class="button">Login</button>
+
+                </form>
+            </div>
+            <div id="logOutTxt"></div>
+
+            <ul class="list-group" id='loggedin'></ul>
+            <ul class="blockquote-reverse" id='randomnumber'></ul>
+            <ul class="blockquote-reverse" id='sequencenumber'></ul>
+            <ul class="blockquote-reverse" id='printExcel'></ul>
+
+
+            <button id="logout" class="button">Logout</button>
+            <button id="next1" class="button" >Next &raquo;</button>
+            <button id="next2" class="button" >Next &raquo;</button>
+            <button id="back" class="button" >Back &raquo;</button>
+            <div id="verification">
+              <p>Does your login details matched?</p>
+              <button id="yes" class="button">Yes</button>
+              <button id="no" class="button">No</button>
+            </div>
+
+            <div id="token">
+
+              <h2>
+                Please press the button for the Token Number
+              </h2>
+                <button id="tokenNum" class="button"> New Token Number </button>
+
+            </div>
+
+              <div>
+                <button id="excelPrint" class="btn btn-warning">Export to Excel</button>
+              </div>
+
+              <div id="printRandom" class="btn-group">
+                <button id="print" class="btn btn-warning">Print Random Number</button>
+              </div>
+              <div class="btn-group">
+                <button id="show" class="btn btn-warning">Sequence Number</button>
+              </div>
+              <div id ="excelData" class="btn-group">
+                <button id="excel" class="btn btn-warning">Excel Data</button>
+              </div>
+              <div id="excelValue">
+                <table id="excelResult" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>case</th>
+                      <th>FirstName</th>
+                      <th>LastName</th>
+                      <th>CaseAge</th>
+                      <th>ChildrenInHousehold</th>
+                      <th>AdultsInHousehold </th>
+                      <th>SeniorsInHousehold</th>
+                      <!-- <th>Total</th> -->
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div>
+                <div id="randomData" >
+                  <table id="shuffledResult" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>case</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>CaseAge</th>
+                        <th>ChildrenInHousehold</th>
+                        <th>AdultsInHousehold </th>
+                        <th>SeniorsInHousehold</th>
+                        <!-- <th>Total</th> -->
+                        <th>Date</th>
+                        <th>RandomNumcol</th>
+                        <th>ColdOrder</th>
+                        <th>grocery</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div id="sequenceDisplay">
+                  <div id="sequenceData" >
+                    <table id="Result" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>case</th>
+                          <th>FirstName</th>
+                          <th>LastName</th>
+                          <th>CaseAge</th>
+                          <th>ChildrenInHousehold</th>
+                          <th>AdultsInHousehold </th>
+                          <th>SeniorsInHousehold</th>
+                          <th>Date</th>
+                          <th>Id</th>
+                          <th>ColdOrder</th>
+                          <th>grocery</th>
+                        </tr>
+                      </thead>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            <br/><br/><br/>
+
+
+
+
+
+
+            <div id="T" class="footer">
+                <p id="a"><bold>Address</bold><br 11 Homer Street<br>Newton, MA 02459</p>
+            </div>
+        </div>
+        <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+               slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+
+        </script>
+        <script src="utilities.js"></script>
+        <script src="script.js"></script>
+        <script src="table2csv/src/table2csv.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+    </body>
+
+</html>
