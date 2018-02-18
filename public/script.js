@@ -52,7 +52,7 @@ $(document).ready(function(){
                                 'ChildrenInHousehold',
                                 'SeniorsInHousehold',
                                 'AdultsInHousehold',
-                                'LastVisitedDate'];
+                                'LastAssistanceDate'];
                   var html = '';
 
                   fields.map(function(item){
@@ -68,8 +68,8 @@ $(document).ready(function(){
                 }
 
             var date = new Date();
-            var LastVisitedDate = data[0]['LastVisitedDate'];
-            if(date.getMonth() !== new Date(LastVisitedDate).getMonth()){
+            var LastAssistanceDate = data[0]['LastAssistanceDate'];
+            if(date.getMonth() !== new Date(LastAssistanceDate).getMonth()){
                 $("#next1").show();
             }
             else{

@@ -127,7 +127,7 @@ h1 {
     left: 120px;
     right: 120px;
     float:none;
-    height: 60px;
+    height: 40px;
     bottom:0;
     background: linear-gradient(#C0D449, #619b3e);
     background: -webkit-linear-gradient(#C0D449, #619b3e);
@@ -210,7 +210,7 @@ body .btn btn-warning:hover, body .btn-warning:focus {
   float: center;
 }
 #logout{
-  top: 80%;
+  top: 78%;
   right: 129px;
   float: right;
 }

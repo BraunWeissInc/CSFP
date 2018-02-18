@@ -48,7 +48,7 @@ app.get('/updatedate', function(request, response){
 
     const { FirstName,LastName } = request.query;
 
-    const query = `UPDATE login SET LastVisitedDate='${new Date()}' where FirstName='${FirstName}' AND LastName='${LastName}'`;
+    const query = `UPDATE login SET LastAssistanceDate='${new Date()}' where FirstName='${FirstName}' AND LastName='${LastName}'`;
 
     connectDatabase(query).then(function(result){
         response.json(result);
@@ -135,8 +135,8 @@ app.get('/insert', function(request, response){
 function connectDatabase(query) {
 
     const config = {
-        host     : "localhost",
-        user     : "root",
+        host     : "127.0.0.1",
+        user     : "Kanulka",
         password : "password",
         database : "CSFP"
     };
