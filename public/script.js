@@ -23,10 +23,12 @@ $(document).ready(function(){
 
 
     $("#Admin").click(function(event){
+        $('#logo').hide();
         $('#select').hide();
         $('#adminLogin').show();
     });
     $("#customer").click(function(event){
+        $('#logo').hide();
         $('#select').hide();
         $('#myform').show();
     });
@@ -63,8 +65,8 @@ $(document).ready(function(){
 
                  } else {
 
-                    $('#loggedin').html("No data found");
-                    //  $('#back').show();
+                    $('#loggedin').html('<h2 style="text-align:center;"> No data found</h2>');
+                    $('#logout').show();
                 }
 
             var date = new Date();
@@ -109,8 +111,8 @@ $(document).ready(function(){
             }
             else {
               $('#adminLogin').hide();
-              $('#loggedin').html("No data found");
-              //$('#back').show();
+              $('#loggedin').html('<h2 style="text-align:center;"> Invalid login.</h2>');
+              $('#logout').show();
              }
             }
         });
@@ -167,9 +169,8 @@ $(document).ready(function(){
           // var html = '';
 // #randomData table tr:last
           sortData.map(function(item){
-            $('#shuffledResult').append('<tbody><tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+'</td><td>' +item.Date+ '</td><td>' +item.RandomNumcol+ '</td><td><td></td></tr></tbody>');
+            $('#randomBody').append('<tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+'</td><td>' +item.Date+ '</td><td>' +item.RandomNumcol+ '</td><td><td></td></tr>');
           });
-
           $('#print').hide();
           $('#show').hide();
           $('#excel').hide();
@@ -182,6 +183,7 @@ $(document).ready(function(){
           $('#excelValue').hide();
           $('#excelResult').hide();
           $('#excelPrint').hide();
+
        }
      });
     }
@@ -195,7 +197,7 @@ $(document).ready(function(){
           // var fields = ['case','FirstName','LastName','CaseAge','ChildrenInHousehold','AdultsInHousehold','SeniorsInHousehold','Date','Id','ColdOrder','grocery'];
           // console.log(data)
           sortData.map(function(item){
-            $('#Result').append('<tbody><tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+ '</td><td>' +item.Date+ '</td><td>' +item.id+ '</td><td><td></td></tr></tbody>');
+            $('#seqBody').append('<tr class= "table table-bordered table-striped"><td>'+item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+ '</td><td>' +item.Date+'</td><td>'+item.id+'</td><td><td></td></tr>');
           });
           $('#print').hide();
           $('#show').hide();
@@ -256,7 +258,7 @@ $(document).ready(function(){
         success: function(data){
           // var date = new Date().toISOString().slice(0, 19).replace('T', ' ');
          data.map(function(item){
-            $('#excelResult').append('<tbody><tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+ '</td><td>' +item.Date+ '</td></tr></tbody>');
+            $('#excelBody').append('<tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+ '</td><td>' +item.Date+ '</td></tr>');
           });
           $('#print').hide();
           $('#show').hide();
@@ -281,6 +283,7 @@ $(document).ready(function(){
         filename: 'table.csv'
       });
       $('#excelResult').table2csv('output',{appendTo: '#out'});
+      $('#excelPrint').hide();
     });
       $("#tokenNum").click(function(e){
         e.preventDefault();
@@ -323,11 +326,17 @@ $(document).ready(function(){
       $('#print').show();
       $('#show').show();
       $('#excel').show();
+      $('#excelPrint').hide();
       $('#excelValue').hide();
       $('#randomData').hide();
       $('#sequenceDisplay').hide();
       $('#sequenceData').hide();
       $('#back').hide();
+      $('#seqBody').empty();
+      $('#excelBody').empty();
+      $('#randomBody').empty();
+
+
 
      });
 

@@ -17,21 +17,23 @@
           <div class="slideshow-container">
             <div  class="mySlides fade">
               <img src="slider5.jpg" style="width:100%">
-              <div class="centered"><h1>Centre Street Food Pantry</h1></div>
+              <div class="centered">Centre Street Food Pantry</div>
             </div>
 
             <div class="mySlides fade">
               <img src="120319-FA-Boston-1149_2.jpg" style="width:100%">
-              <div class="centered"><h1>Centre Street Food Pantry</h1></div>
+              <div class="centered">Centre Street Food Pantry</div>
             </div>
 
             <div class="mySlides fade">
               <img src="Food_Pantry_Fresh_Produce.jpg" style="width:100%">
-              <div class="centered"><h1>Centre Street Food Pantry</h1></div>
+              <div class="centered">Centre Street Food Pantry</div>
             </div>
 
           </div>
-          <br>
+          <div id="logo">
+            <img src="logo.png">
+          </div>
           <div style="text-align:center">
             <span class="dot"></span>
             <span class="dot"></span>
@@ -65,9 +67,9 @@
             <div id="logOutTxt"></div>
 
             <ul class="list-group" id='loggedin'></ul>
-            <!-- <ul class="blockquote-reverse" id='randomnumber'></ul>
+            <ul class="blockquote-reverse" id='randomnumber'></ul>
             <ul class="blockquote-reverse" id='sequencenumber'></ul>
-            <ul class="blockquote-reverse" id='printExcel'></ul> -->
+            <ul class="blockquote-reverse" id='printExcel'></ul>
 
 
             <button id="logout" class="button">Logout</button>
@@ -117,6 +119,7 @@
                       <th>Date</th>
                     </tr>
                   </thead>
+                  <tbody id="excelBody"></tbody>
                 </table>
               </div>
               <div>
@@ -138,6 +141,7 @@
                         <th>grocery</th>
                       </tr>
                     </thead>
+                    <tbody id="randomBody"></tbody>
                   </table>
                 </div>
                 <div id="sequenceDisplay">
@@ -158,6 +162,7 @@
                           <th>grocery</th>
                         </tr>
                       </thead>
+                      <tbody id="seqBody"></tbody>
 
                     </table>
                   </div>
@@ -192,7 +197,7 @@
             }
             slides[slideIndex-1].style.display = "block";
             dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
+            setTimeout(showSlides, 2000);
         }
 
         </script>

@@ -10,16 +10,16 @@ body {font-family: Verdana, sans-serif;}
 img {vertical-align: middle;}
 
 .slideshow-container {
-  height: 300px;
+  height: 350px;
   max-width: 1000px;
-  max-height: 300px;
+  max-height: 350px;
   display: block;
   position: relative;
   /* margin: auto; */
 }
 .centered{
-  color: #f2f2f2;
-  font-size: 30px;
+  color: #FFFFFF;
+  font-size: 50px;
   padding: 8px 12px;
   position: absolute;
   bottom: 18px;
@@ -76,16 +76,14 @@ img {vertical-align: middle;}
 /* } */
 .mySlides img{
   position: absolute;
-  height: 300px;
+  height: 350px;
   max-width: 1000px;
   top: 0px;
 }
-#img{
-    float:left;
-    width: 100px;
-    height: 123px;
-    margin-top:20px;
-
+#logo img{
+  position:fixed;
+  left:100px;
+  top:60px;
 }
 
 h1 {
