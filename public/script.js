@@ -69,9 +69,12 @@ $(document).ready(function(){
                     $('#logout').show();
                 }
 
-            var date = new Date();
+            var date = new Date().toString().slice(4, 15);
+            var d = date.slice(0,3);
             var LastAssistanceDate = data[0]['LastAssistanceDate'];
-            if(date.getMonth() !== new Date(LastAssistanceDate).getMonth()){
+            var Last = LastAssistanceDate.slice(0,3);
+            if(d !== Last){
+            // if(date.getMonth() !== new Date(LastAssistanceDate).getMonth()){
                 $("#next1").show();
             }
             else{

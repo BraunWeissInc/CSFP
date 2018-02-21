@@ -11,8 +11,8 @@ img {vertical-align: middle;}
 
 .slideshow-container {
   height: 350px;
-  max-width: 1000px;
-  max-height: 350px;
+  max-width: 100%;
+  max-height: 40%;
   display: block;
   position: relative;
   /* margin: auto; */
@@ -58,8 +58,8 @@ img {vertical-align: middle;}
   transition: background-color 0.6s ease;
 }
 #container{
-    width: 1090px;
-    height: auto;
+    width: 82%;
+    height: 40%;
     margin: 0 auto;
 }
 
@@ -81,9 +81,11 @@ img {vertical-align: middle;}
   top: 0px;
 }
 #logo img{
-  position:fixed;
-  left:100px;
-  top:60px;
+  position: fixed;
+  left: 10%;
+  top: 28%;
+  width: 12%;
+  height: 25%;
 }
 
 h1 {

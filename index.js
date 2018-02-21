@@ -47,8 +47,9 @@ app.get('/user', function(request, response){
 app.get('/updatedate', function(request, response){
 
     const { FirstName,LastName } = request.query;
+    const date = new Date().toString().slice(4, 15);
 
-    const query = `UPDATE login SET LastAssistanceDate='${new Date()}' where FirstName='${FirstName}' AND LastName='${LastName}'`;
+    const query = `UPDATE login SET LastAssistanceDate='${date}' where FirstName='${FirstName}' AND LastName='${LastName}'`;
 
     connectDatabase(query).then(function(result){
         response.json(result);
@@ -121,17 +122,17 @@ app.get('/insertdate', function(request, response){
         response.json(result);
     });
 });
-app.get('/insert', function(request, response){
-
-    const { FirstName,LastName } = request.query;
-
-    const query = `INSERT INTO sequenceNum (FirstName, LastName, Date) VALUES('${FirstName}', '${LastName}', '${new Date()}' )`;
-
-    connectDatabase(query).then(function(result){
-        response.json(result);
-    });
-});
-
+// app.get('/insert', function(request, response){
+//
+//     const { FirstName,LastName } = request.query;
+//
+//     const query = `INSERT INTO sequenceNum (FirstName, LastName, Date) VALUES('${FirstName}', '${LastName}', '${new Date()}' )`;
+//
+//     connectDatabase(query).then(function(result){
+//         response.json(result);
+//     });
+// });
+// var size = item.length;
 function connectDatabase(query) {
 
     const config = {
@@ -140,7 +141,6 @@ function connectDatabase(query) {
         password : "password",
         database : "CSFP"
     };
-
 
     return new Promise(function(resolve, reject) {
         var connection = mysql.createConnection(config);
@@ -151,6 +151,7 @@ function connectDatabase(query) {
             }
             resolve(result);
         });
+        connection.end();
 
     });
 }
