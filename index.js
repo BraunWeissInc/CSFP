@@ -47,7 +47,7 @@ app.get('/user', function(request, response){
 app.get('/updatedate', function(request, response){
 
     const { FirstName,LastName } = request.query;
-    const date = new Date().toString().slice(4, 15);
+    const date = new Date().toString().slice(0, 15);
 
     const query = `UPDATE login SET LastAssistanceDate='${date}' where FirstName='${FirstName}' AND LastName='${LastName}'`;
 
@@ -58,7 +58,7 @@ app.get('/updatedate', function(request, response){
 
 app.get('/updatePrintStatus', function(request, response){
 
-    var date = new Date().toString().slice(4, 15);
+    var date = new Date().toString().slice(0, 15);
     const query = `INSERT INTO statusTable (Date, printPress) VALUES ('${date}', 'true')`;
 
     connectDatabase(query).then(function(result){
@@ -69,7 +69,7 @@ app.get('/updatePrintStatus', function(request, response){
 app.get('/getPrintStatus', function(request, response){
 
     // const query = 'SELECT * FROM statusTable WHERE Date(`Date`)=Date(NOW())';
-    var date = new Date().toString().slice(4, 15);
+    var date = new Date().toString().slice(0, 15);
     const query = `SELECT * FROM statusTable WHERE Date = '${date}'`;
 
     connectDatabase(query).then(function(result){
@@ -79,7 +79,7 @@ app.get('/getPrintStatus', function(request, response){
 
 
 app.get('/printRandom', function(request, response){
-  var date = new Date().toString().slice(4, 15);
+  var date = new Date().toString().slice(0, 15);
 
   const query = `SELECT login.case, login.CaseAge, login.ChildrenInHousehold, login.AdultsInHousehold, login.SeniorsInHousehold, RandomNum.* FROM login JOIN RandomNum USING(FirstName,LastName) WHERE printPress = 'false' AND Date = '${date}'`;
 
@@ -89,7 +89,7 @@ app.get('/printRandom', function(request, response){
 
 });
 app.get('/excel', function(request, response){
-  var date = new Date().toString().slice(4, 15)
+  var date = new Date().toString().slice(0, 15)
 
   const query = `SELECT login.case, login.CaseAge, login.ChildrenInHousehold, login.AdultsInHousehold, login.SeniorsInHousehold, RandomNum.FirstName, RandomNum.LastName, RandomNum.Date FROM login JOIN RandomNum USING(FirstName,LastName) WHERE Date = '${date}'`;
 
@@ -99,7 +99,7 @@ app.get('/excel', function(request, response){
 
 });
 app.get('/printSequence', function(request, response){
-  var date = new Date().toString().slice(4, 15);
+  var date = new Date().toString().slice(0, 15);
 
   const query = `SELECT login.case, login.CaseAge, login.ChildrenInHousehold, login.AdultsInHousehold, login.SeniorsInHousehold, RandomNum.FirstName, RandomNum.LastName, RandomNum.Date, RandomNum.id, RandomNum.ColdOrder, RandomNum.grocery FROM login JOIN RandomNum USING(FirstName,LastName) WHERE printPress = 'true' AND Date = '${date}'`;
 
@@ -136,8 +136,8 @@ app.get('/insertdate', function(request, response){
 function connectDatabase(query) {
 
     const config = {
-        host     : "127.0.0.1",
-        user     : "Kanulka",
+        host     : "localhost",
+        user     : "root",
         password : "password",
         database : "CSFP"
     };

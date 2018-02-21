@@ -69,7 +69,7 @@ $(document).ready(function(){
                     $('#logout').show();
                 }
 
-            var date = new Date().toString().slice(4, 15);
+            var date = new Date().toString().slice(0, 15);
             var d = date.slice(0,3);
             var LastAssistanceDate = data[0]['LastAssistanceDate'];
             var Last = LastAssistanceDate.slice(0,3);
@@ -195,7 +195,7 @@ $(document).ready(function(){
         type: "GET",
         url: "/printSequence",
         success: function(data){
-          var date = new Date().toString().slice(4, 15);
+          var date = new Date().toString().slice(0, 15);
           var sortData = _.sortBy(data, 'id');
           // var fields = ['case','FirstName','LastName','CaseAge','ChildrenInHousehold','AdultsInHousehold','SeniorsInHousehold','Date','Id','ColdOrder','grocery'];
           // console.log(data)
@@ -292,7 +292,7 @@ $(document).ready(function(){
         e.preventDefault();
         var FirstName = $("#FirstName").val();
         var LastName = $("#LastName").val();
-        var date = new Date().toString().slice(4, 15);
+        var date = new Date().toString().slice(0, 15);
         var randomString = getRandomString(2);
         // var printPressButton = $('printPress').val();
         // var empty =  ;
