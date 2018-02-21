@@ -70,10 +70,10 @@ $(document).ready(function(){
                 }
 
             var date = new Date().toString().slice(0, 15);
-            var d = date.slice(0,3);
+            // var d = date.slice(0,3);
             var LastAssistanceDate = data[0]['LastAssistanceDate'];
-            var Last = LastAssistanceDate.slice(0,3);
-            if(d !== Last){
+            // var Last = LastAssistanceDate.slice(0,3);
+            if(new Date(date).getMonth() !== new Date(LastAssistanceDate).getMonth()){
             // if(date.getMonth() !== new Date(LastAssistanceDate).getMonth()){
                 $("#next1").show();
             }
