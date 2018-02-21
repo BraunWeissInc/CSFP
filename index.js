@@ -58,7 +58,7 @@ app.get('/updatedate', function(request, response){
 
 app.get('/updatePrintStatus', function(request, response){
 
-    const date = new Date().toString().slice(4, 15);
+    var date = new Date().toString().slice(4, 15);
     const query = `INSERT INTO statusTable (Date, printPress) VALUES ('${date}', 'true')`;
 
     connectDatabase(query).then(function(result){
