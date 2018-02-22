@@ -73,7 +73,7 @@ $(document).ready(function(){
             // var d = date.slice(0,3);
             var LastAssistanceDate = new Date(data[0]['LastAssistanceDate']);
 
-            //debugger;
+            
             if ( date.getFullYear() !== LastAssistanceDate.getFullYear() ) {
               $("#next1").show();
             }
