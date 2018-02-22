@@ -69,15 +69,18 @@ $(document).ready(function(){
                     $('#logout').show();
                 }
 
-            var date = new Date().toString().slice(0, 15);
+            var date = new Date();
             // var d = date.slice(0,3);
-            var LastAssistanceDate = data[0]['LastAssistanceDate'];
-            // var Last = LastAssistanceDate.slice(0,3);
-            if(new Date(date).getMonth() !== new Date(LastAssistanceDate).getMonth()){
-            // if(date.getMonth() !== new Date(LastAssistanceDate).getMonth()){
-                $("#next1").show();
+            var LastAssistanceDate = new Date(data[0]['LastAssistanceDate']);
+
+            //debugger;
+            if ( date.getFullYear() !== LastAssistanceDate.getFullYear() ) {
+              $("#next1").show();
             }
-            else{
+            else if ( date.getMonth() !== LastAssistanceDate.getMonth() ) {
+              $("#next1").show();
+            }
+            else {
               $('#logOutTxt').text( "Sorry! You are not allowed to shop.");
               $('#logOutTxt').css({fontSize: "30px", background: "#e50d35"});
               $("#logout").show();

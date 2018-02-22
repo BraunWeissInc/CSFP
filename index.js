@@ -136,8 +136,8 @@ app.get('/insertdate', function(request, response){
 function connectDatabase(query) {
 
     const config = {
-        host     : "127.0.0.1",
-        user     : "Kanulka",
+        host     : "localhost",
+        user     : "root",
         password : "password",
         database : "CSFP"
     };
