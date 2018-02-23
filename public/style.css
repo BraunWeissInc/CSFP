@@ -9,10 +9,10 @@ body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
 img {vertical-align: middle;}
 
-.slideshow-container {
+.image-container {
   height: 350px;
   max-width: 100%;
-  max-height: 40%;
+  max-height: 35%;
   display: block;
   position: relative;
   /* margin: auto; */
@@ -22,21 +22,21 @@ img {vertical-align: middle;}
   font-size: 50px;
   padding: 8px 12px;
   position: absolute;
-  bottom: 18px;
+  bottom: 30%;
   width: 100%;
   text-align: center;
 }
 .active {
   background-color: #717171;
 }
-.fade {
+/* .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 2s;
   animation-name: fade;
   animation-duration: 2s;
-}
+} */
 
-@-webkit-keyframes fade {
+/* @-webkit-keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
 }
@@ -47,8 +47,8 @@ img {vertical-align: middle;}
 }
 @media only screen and (max-width: 300px)(max-height: 500px) {
   .text {font-size: 11px}
-}
-.dot {
+} */
+/* .dot {
   height: 5px;
   width: 5px;
   margin: 0 2px;
@@ -56,7 +56,7 @@ img {vertical-align: middle;}
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
-}
+} */
 #container{
     width: 82%;
     height: 40%;
@@ -74,14 +74,14 @@ img {vertical-align: middle;}
     background: -o-linear-gradient(#C0D449, #619b3e);
     background: -moz-linear-gradient(#C0D449, #619b3e); */
 /* } */
-.mySlides img{
+.image-container img{
   position: absolute;
-  height: 350px;
-  max-width: 1000px;
+  height: 100%;
+  max-width: 100%;
   top: 0px;
 }
 #logo img{
-  position: fixed;
+  position: absolute;
   left: 10%;
   top: 28%;
   width: 12%;
@@ -169,13 +169,13 @@ p #a{
 
 .nav-pills>li>a{
   background-color: #F48220;
-  top: 20%;
+  top: 30%;
 }
 
 .nav-center ul.nav {
   text-align: center;
   display: inline-block;
-  top: 20%;
+  top: 30%;
 }
 .table table-bordered table-striped td.nav {
   text-align: center;

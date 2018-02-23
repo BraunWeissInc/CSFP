@@ -14,13 +14,10 @@
     </head>
     <body>
         <div class='container' id="container">
-          <div class="slideshow-container">
-            <div  class="mySlides fade">
-              <img src="slider5.jpg" style="width:100%">
-              <div class="centered">Centre Street Food Pantry</div>
-            </div>
-
-            <div class="mySlides fade">
+          <div class="image-container">
+            <img src="slider5.jpg" style="width:100%">
+            <div class="centered">Centre Street Food Pantry</div>
+            <!-- <div class="mySlides fade">
               <img src="120319-FA-Boston-1149_2.jpg" style="width:100%">
               <div class="centered">Centre Street Food Pantry</div>
             </div>
@@ -28,17 +25,18 @@
             <div class="mySlides fade">
               <img src="Food_Pantry_Fresh_Produce.jpg" style="width:100%">
               <div class="centered">Centre Street Food Pantry</div>
-            </div>
+            </div> -->
 
           </div>
           <div id="logo">
             <img src="logo.png">
           </div>
-          <div style="text-align:center">
+          <br/><br/>
+          <!-- <div style="text-align:center">
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
-          </div>
+          </div> -->
             <!-- <div id="header">
                 <div id="img"><img src="logo.png"></div>
                 <div id="T"><h1>Centre Street Food Pantry</h1></div>
@@ -77,7 +75,7 @@
             <button id="next2" class="button" >Next &raquo;</button>
             <button id="back" class="button" >Back &raquo;</button>
             <div id="verification">
-              <p>Does your login details matched?</p>
+              <p>Does your login details match?</p>
               <button id="yes" class="button">Yes</button>
               <button id="no" class="button">No</button>
             </div>
@@ -111,10 +109,10 @@
                       <th>case</th>
                       <th>FirstName</th>
                       <th>LastName</th>
-                      <th>CaseAge</th>
-                      <th>ChildrenInHousehold</th>
-                      <th>AdultsInHousehold </th>
-                      <th>SeniorsInHousehold</th>
+                      <!-- <th>CaseAge</th>
+                      <th>ChildrenIn<br/>Household</th>
+                      <th>AdultsIn<br/>Household </th>
+                      <th>SeniorsIn<br/>Household</th> -->
                       <!-- <th>Total</th> -->
                       <th>Date</th>
                     </tr>
@@ -127,13 +125,13 @@
                   <table id="shuffledResult" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>case</th>
+                        <!-- <th>case</th> -->
                         <th>FirstName</th>
                         <th>LastName</th>
-                        <th>CaseAge</th>
-                        <th>ChildrenInHousehold</th>
-                        <th>AdultsInHousehold </th>
-                        <th>SeniorsInHousehold</th>
+                        <!-- <th>CaseAge</th> -->
+                        <th>ChildrenIn<br/>Household</th>
+                        <th>AdultsIn</br>Household </th>
+                        <th>SeniorsIn<br/>Household</th>
                         <!-- <th>Total</th> -->
                         <th>Date</th>
                         <th>RandomNumcol</th>
@@ -144,18 +142,18 @@
                     <tbody id="randomBody"></tbody>
                   </table>
                 </div>
-                <div id="sequenceDisplay">
+                <!-- <div id="sequenceDisplay"> -->
                   <div id="sequenceData" >
                     <table id="Result" class="table table-bordered table-striped">
                       <thead>
                         <tr>
-                          <th>case</th>
+                          <!-- <th>case</th> -->
                           <th>FirstName</th>
                           <th>LastName</th>
-                          <th>CaseAge</th>
-                          <th>ChildrenInHousehold</th>
-                          <th>AdultsInHousehold </th>
-                          <th>SeniorsInHousehold</th>
+                          <!-- <th>CaseAge</th> -->
+                          <th>ChildrenIn<br/>Household</th>
+                          <th>AdultsIn<br/>Household </th>
+                          <th>SeniorsIn<br/>Household</th>
                           <th>Date</th>
                           <th>Id</th>
                           <th>ColdOrder</th>
@@ -167,7 +165,7 @@
                     </table>
                   </div>
                 </div>
-              </div>
+              <!-- </div> -->
             <br/><br/><br/>
 
 
@@ -179,7 +177,7 @@
                 <p id="a"><b>Address:</b>11 Homer Street<br>Newton, MA 02459</p>
             </div>
         </div>
-        <script>
+        <!-- <script>
         var slideIndex = 0;
         showSlides();
 
@@ -200,7 +198,7 @@
             setTimeout(showSlides, 2000);
         }
 
-        </script>
+        </script> -->
         <script src="utilities.js"></script>
         <script src="script.js"></script>
         <script src="table2csv/src/table2csv.js"></script>

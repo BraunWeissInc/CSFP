@@ -14,6 +14,7 @@ $(document).ready(function(){
     $("#beforeVisited").hide();
     $('#shuffledResult').hide();
     $('#sequenceDisplay').hide();
+    $('#sequenceData').hide();
     $('#randomDisplay').hide();
     $('#verification').hide();
     $('#excel').hide();
@@ -73,12 +74,14 @@ $(document).ready(function(){
             // var d = date.slice(0,3);
             var LastAssistanceDate = new Date(data[0]['LastAssistanceDate']);
 
-            
+
             if ( date.getFullYear() !== LastAssistanceDate.getFullYear() ) {
-              $("#next1").show();
+              // $("#next1").show();
+              $('#verification').show();
             }
             else if ( date.getMonth() !== LastAssistanceDate.getMonth() ) {
-              $("#next1").show();
+              // $("#next1").show();
+              $('#verification').show();
             }
             else {
               $('#logOutTxt').text( "Sorry! You are not allowed to shop.");
@@ -163,7 +166,7 @@ $(document).ready(function(){
         type: "GET",
         url: '/printRandom',
         success: function(data){
-          var fields = ['case','FirstName','LastName','CaseAge','ChildrenInHousehold','AdultsInHousehold','SeniorsInHousehold','Date','RandomNumcol','ColdOrder','grocery'];
+          var fields = ['FirstName','LastName','ChildrenInHousehold','AdultsInHousehold','SeniorsInHousehold','Date','RandomNumcol','ColdOrder','grocery'];
           // var visitedCount = $("#beforeVisited").val();
           //var date = new Date().toISOString().slice(0, 19).replace('T', ' ');
           // var date = new Date().toISOString().slice(0, 19).replace('T', ' ');
@@ -175,7 +178,7 @@ $(document).ready(function(){
           // var html = '';
 // #randomData table tr:last
           sortData.map(function(item){
-            $('#randomBody').append('<tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+'</td><td>' +item.Date+ '</td><td>' +item.RandomNumcol+ '</td><td><td></td></tr>');
+            $('#randomBody').append('<tr class= "table table-bordered table-striped"><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+'</td><td>' +item.Date+ '</td><td>' +item.RandomNumcol+ '</td><td><td></td></tr>');
           });
           $('#print').hide();
           $('#show').hide();
@@ -185,7 +188,7 @@ $(document).ready(function(){
           $('#randomData').show();
           $('#shuffledResult').show();
           $('#back').show();
-          $('#sequenceDisplay').hide();
+          $('#sequenceData').hide();
           $('#excelValue').hide();
           $('#excelResult').hide();
           $('#excelPrint').hide();
@@ -203,12 +206,12 @@ $(document).ready(function(){
           // var fields = ['case','FirstName','LastName','CaseAge','ChildrenInHousehold','AdultsInHousehold','SeniorsInHousehold','Date','Id','ColdOrder','grocery'];
           // console.log(data)
           sortData.map(function(item){
-            $('#seqBody').append('<tr class= "table table-bordered table-striped"><td>'+item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+ '</td><td>' +item.Date+'</td><td>'+item.id+'</td><td><td></td></tr>');
+            $('#seqBody').append('<tr class= "table table-bordered table-striped"><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+ '</td><td>' +item.Date+'</td><td>'+item.id+'</td><td><td></td></tr>');
           });
           $('#print').hide();
           $('#show').hide();
           $('#excel').hide();
-          $('#sequenceDisplay').show();
+          // $('#sequenceData').show();
           $('#sequenceData').show();
           $('#Result').show();
           $('#back').show();
@@ -264,7 +267,7 @@ $(document).ready(function(){
         success: function(data){
           // var date = new Date().toISOString().slice(0, 19).replace('T', ' ');
          data.map(function(item){
-            $('#excelBody').append('<tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.CaseAge+ '</td><td>' +item.ChildrenInHousehold+ '</td><td>' +item.AdultsInHousehold+ '</td><td>' +item.SeniorsInHousehold+ '</td><td>' +item.Date+ '</td></tr>');
+            $('#excelBody').append('<tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.Date+ '</td></tr>');
           });
           $('#print').hide();
           $('#show').hide();
@@ -273,7 +276,7 @@ $(document).ready(function(){
           $('#excelValue').show();
           $('#excelResult').show();
           $('#excelPrint').show();
-          $('#sequenceDisplay').hide();
+          $('#sequenceData').hide();
           $('#randomData').hide();
         }
       });
@@ -335,7 +338,7 @@ $(document).ready(function(){
       $('#excelPrint').hide();
       $('#excelValue').hide();
       $('#randomData').hide();
-      $('#sequenceDisplay').hide();
+      // $('#sequenceDisplay').hide();
       $('#sequenceData').hide();
       $('#back').hide();
       $('#seqBody').empty();
