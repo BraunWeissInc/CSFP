@@ -5,28 +5,12 @@ var _ = require('lodash');
 var app = express();
 var schedule = require('node-schedule');
 
-// var tableToCsv = require('node-table-to-csv');
-// var json2xls= require('json2xls');
-// var nodeExcel = require('excel-export');
+
 
 app.listen(3000);
 
 app.use('/', express.static('public'))
 
-//app.get('/',function(request,response) {
-//    response.sendFile(path.join(__dirname + '/login.html'));
-//});
-// app.use(json2xls.middleware);
-// app.get('/Excel', function(request, response){
-//   const query = `SELECT login.case, login.CaseAge, login.ChildrenInHousehold, login.AdultsInHousehold, login.SeniorsInHousehold, RandomNum.* FROM login JOIN RandomNum USING(FirstName,LastName)`;
-//   connectDatabase(query).then(function(result){
-//     response.json(result);
-//     response.xsl('data.xlsx', jsonArr);
-//   });
-
-
-// });
-//
 
 app.get('/admin', function(request, response){
     const { UserName,Password } = request.query;
@@ -83,19 +67,19 @@ app.get('/checkBox', function(request, response){
         response.json(result);
     });
 });
-app.get('/RcheckBox', function(request, response){
-
-    const { checkBoxType, id, checked  } = request.query;
-    const query = `UPDATE RandomNum SET ${checkBoxType}='${checked}' where RandomNumcol='${id}'`;
-
-    console.log("### checkbox api get");
-
-    connectDatabase(query).then(function(result){
-      console.log("inside connect database");
-      console.log(result);
-        response.json(result);
-    });
-});
+// app.get('/RcheckBox', function(request, response){
+//
+//     const { checkBoxType, id, checked  } = request.query;
+//     const query = `UPDATE RandomNum SET ${checkBoxType}='${checked}' where RandomNumcol='${id}'`;
+//
+//     console.log("### checkbox api get");
+//
+//     connectDatabase(query).then(function(result){
+//       console.log("inside connect database");
+//       console.log(result);
+//         response.json(result);
+//     });
+// });
 
 app.get('/getPrintStatus', function(request, response){
 

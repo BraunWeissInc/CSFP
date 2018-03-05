@@ -8,17 +8,3 @@ var getRandomString = function(e){
     return text;
 
 };
-// var seq = "";
-// for (var i = visitedCount; i > visitedCount;i++){
-//   seq += seq+1;
-// }
-// var  printPressButton = function(e){
-//   var printPress = false;
-//   if ($(#'print') == OnClick){
-//     printPress = true;
-//   }
-//   else{
-//     printPress =false;
-//   }
-//
-// };

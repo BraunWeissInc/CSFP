@@ -199,6 +199,9 @@ body .btn btn-warning:hover, body .btn-warning:focus {
   top: 80%;
   float: center;
 }
+#Home{
+  float: left;
+}
 #logout{
   top: 78%;
   right: 129px;

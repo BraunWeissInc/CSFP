@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="views/shopper/jquery.autocomplete.css">
 <script src="views/shopper/jquery.autocomplete.js"></script>
-
+<div><button id="Home" class="button">Home</button></div>
 <div id="shopperLogin">
     <form method="get" id="myShopperform">
       <p>First Name<input  class="typeahead tt-query" spellcheck="false" autocomplete="off" name="typeahead" id="FirstName" type="text"></p>
@@ -132,5 +132,8 @@
 
   $('#logoutClient').click(function(e){
     $('#body').load('views/shopper/login.html');
+  });
+  $('#Home').click(function(e){
+    $('#body').load('views/main.html');
   });
 </script>

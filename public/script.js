@@ -19,9 +19,7 @@ $(document).ready(function(){
           var isColdOrderChecked = (item.ColdOrder === 'true') ? 'checked' : '';
           var isGroceryChecked = (item.grocery === 'true') ? 'checked' : '';
 
-          $('#randomBody').append(`<tr class= "table table-bordered table-striped"><td> ${item.FirstName} </td><td> ${item.LastName} </td><td> ${item.ChildrenInHousehold} </td><td> ${item.AdultsInHousehold} </td><td> ${item.SeniorsInHousehold} </td><td> ${item.ChildrenInHousehold+item.AdultsInHousehold+item.SeniorsInHousehold} </td><td> ${item.Date} </td><td> ${item.RandomNumcol}
-          </td><td><input type="checkbox" data-id="${item.RandomNumcol}" name="coldOrder" ${isColdOrderChecked} />
-          </td><td><input type="checkbox" data-id="${item.RandomNumcol}" name="grocery" ${isGroceryChecked} /> </td></tr>`)
+          $('#randomBody').append(`<tr class= "table table-bordered table-striped"><td> ${item.FirstName} </td><td> ${item.LastName} </td><td> ${item.ChildrenInHousehold} </td><td> ${item.AdultsInHousehold} </td><td> ${item.SeniorsInHousehold} </td><td> ${item.ChildrenInHousehold+item.AdultsInHousehold+item.SeniorsInHousehold} </td><td> ${item.Date} </td><td> ${item.RandomNumcol} </td></tr>`)
         });
      }
    });

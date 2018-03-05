@@ -13,8 +13,8 @@
         <th>Total<br/>Family</th>
         <th>Date</th>
         <th>Random <br/>Number</th>
-        <th>Cold Order</th>
-        <th>Grocery <br/>Order</th>
+        <!-- <th>Cold Order</th>
+        <th>Grocery <br/>Order</th> -->
       </tr>
     </thead>
     <tbody id="randomBody"></tbody>
@@ -25,25 +25,25 @@
   updatePrintStatus();
   showRandomData();
 
-  $('#randomBody').on("click", "input[type='checkbox']", function(e) {
-    console.log(e.target);
-    var checkBoxType = e.target.name;  // coldorder
-    var id = e.target.dataset.RandomNumcol;  // 1
-    var checked = e.target.checked; //true
-
-    $.ajax({
-      type: "GET",
-      url: "/RcheckBox",
-      data: {
-        checkBoxType : checkBoxType,
-        id : id,
-        checked : checked
-      },
-      success: function(data) {
-        console.log("checkbox updated");
-      }
-    });
-  });
+  // $('#randomBody').on("click", "input[type='checkbox']", function(e) {
+  //   console.log(e.target);
+  //   var checkBoxType = e.target.name;  // coldorder
+  //   var id = e.target.dataset.RandomNumcol;  // 1
+  //   var checked = e.target.checked; //true
+  //
+  //   $.ajax({
+  //     type: "GET",
+  //     url: "/RcheckBox",
+  //     data: {
+  //       checkBoxType : checkBoxType,
+  //       id : id,
+  //       checked : checked
+  //     },
+  //     success: function(data) {
+  //       console.log("checkbox updated");
+  //     }
+  //   });
+  // });
 
 
 
