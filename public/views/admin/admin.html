@@ -1,0 +1,46 @@
+<div id="printRandom" class="btn-group">
+  <button id="print" class="btn btn-warning">Print Random Number</button>
+</div>
+
+<div class="btn-group">
+  <button id="show" class="btn btn-warning">Sequence Number</button>
+</div>
+
+<div id ="excelData" class="btn-group">
+  <button id="excel" class="btn btn-warning">Excel Data</button>
+</div>
+
+<div id ="manualEntry" class ="btn-group">
+  <button id="manualData" class="btn btn-warning">Manual Entry</button>
+</div>
+
+
+<button id="logout" class="button">Logout</button>
+
+
+<script>
+  $('#show').hide();
+  $('#excel').hide();
+  $('#manualData').hide();
+
+  $('#print').click(function() {
+    $('#body').load('views/admin/showRandom.html');
+  });
+
+  $('#show').click(function() {
+    $('#body').load('views/admin/showSequence.html');
+  });
+
+  $('#excel').click(function() {
+    $('#body').load('views/admin/excel.html');
+  });
+
+  $('#manualData').click(function() {
+    $('#body').load('views/admin/manualEntry.html');
+  });
+
+  $('#logout').click(function(e){
+    $('#body').load('views/main.html');
+  });
+
+</script>

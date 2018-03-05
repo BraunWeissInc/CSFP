@@ -1,0 +1,35 @@
+<button onclick="goBack()" class="button">Back &raquo;</button>
+<button id="logout" class="button">Logout</button>
+
+<div id ="formEntry"><br/><br/>
+  <form id ="form" action="/submit">
+    <label for="firstname">FirstName</label>
+    <input type="text" id="name" name ="FirstName" placeholder="Enter the name"/><br/><br/>
+    <label for="lastname">LastName</label>
+    <input type="text" id="Lastname" name ="LastName" placeholder="Enter the last name"/><br/><br/>
+
+    <button type="submit"id ="formSubmit" class="button">Submit</button>
+  </form>
+</div>
+
+<script>
+  $('#formSubmit').click(function(e){
+    e.preventDefault();
+    var FirstName = $("#name").val();
+    var LastName = $("#Lastname").val();
+
+    var dataString = 'FirstName='+FirstName+'&LastName='+LastName;
+    $.ajax({
+      type: "GET",
+      url: "/submit",
+      data: dataString,
+      success: function(data){
+        $('#formEntry').text( "Information is stored");
+        $('#formEntry').css({fontSize: "30px"});
+      }
+    });
+  });
+  $('#logout').click(function(e){
+    $('#body').load('views/main.html');
+  });
+</script>

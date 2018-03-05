@@ -1,0 +1,55 @@
+<button onclick="goBack()" class="button">Back &raquo;</button>
+<button id="logout" class="button">Logout</button>
+
+<div id="sequenceData" >
+  <table id="Result" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Children</th>
+        <th>Adults</th>
+        <th>Seniors</th>
+        <th>Total <br/>Family</th>
+        <th>Date</th>
+        <th>Id</th>
+        <th>Cold Order</th>
+        <th>Grocery <br/>Order</th>
+      </tr>
+    </thead>
+    <tbody id="seqBody"></tbody>
+
+  </table>
+</div>
+
+<script>
+  showSequenceData();
+
+  $('#seqBody').on("click", "input[type='checkbox']", function(e) {
+    console.log(e.target);
+    var checkBoxType = e.target.name;  // coldorder
+    var id = e.target.dataset.id;  // 1
+    var checked = e.target.checked; //true
+
+    $.ajax({
+      type: "GET",
+      url: "/checkBox",
+      data: {
+        checkBoxType : checkBoxType,
+        id : id,
+        checked : checked
+      },
+      success: function(data) {
+        console.log("checkbox updated");
+      }
+    });
+  });
+
+
+    // write ajax call and send above variables to server
+
+
+  $('#logout').click(function(e){
+    $('#body').load('views/main.html');
+  });
+</script>

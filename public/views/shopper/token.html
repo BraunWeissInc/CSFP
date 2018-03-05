@@ -1,0 +1,42 @@
+<div id="token">
+  <h2>Please press the button for the Token Number</h2>
+    <button id="tokenNum" class="button"> New Token Number </button>
+</div>
+
+<ul class="blockquote-reverse" id='randomnumber'></ul>
+<button id="logoutClient" class="button">Logout</button>
+<script>
+
+  $('#logoutClient').hide();
+  $("#tokenNum").click(function(e){
+    e.preventDefault();
+    debugger;
+    var date = new Date().toString().slice(0, 15);
+    var randomString = getRandomString(2);
+
+    $.get('/getPrintStatus',function(data,status){
+      var printPress = false;
+      if( data.length && data[0].hasOwnProperty('printPress')){
+        printPress = data[0].printPress;
+      }
+
+      var dataString = 'FirstName='+FirstName+'&LastName='+LastName+'&Date='+date+'&RandomNumcol='+randomString+'&printPress='+printPress;
+
+      $.ajax({
+        type: "GET",
+        url: "/insertdate",
+        data: dataString,
+        success: function(data){
+          console.log(data);
+          $('#token').hide();
+          $('#logoutClient').show();
+          $('#randomnumber').html(`<h2 style="text-align:center;">You are successfully registered to shop today. </h2><h1>Thank You</h1>`);
+        }
+      });
+
+    });
+  });
+  $('#logoutClient').click(function(e){
+    $('#body').load('views/shopper/login.html');
+  });
+</script>

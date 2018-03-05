@@ -1,0 +1,136 @@
+<link rel="stylesheet" type="text/css" href="views/shopper/jquery.autocomplete.css">
+<script src="views/shopper/jquery.autocomplete.js"></script>
+
+<div id="shopperLogin">
+    <form method="get" id="myShopperform">
+      <p>First Name<input  class="typeahead tt-query" spellcheck="false" autocomplete="off" name="typeahead" id="FirstName" type="text"></p>
+      <p>Last Name<input  class="typeahead tt-query" spellcheck="false" autocomplete="off" name="typeahead" id="LastName" type="text"></p>
+        <button type="submit" value="Submit" id="submit" class="button">Submit</button>
+    </form>
+</div>
+
+<div id='shopperContent'></div>
+
+
+<div id="verification">
+  <p>Does your login details match?</p>
+  <button id="yes" class="button">Yes</button>
+  <button id="no" class="button">No</button>
+</div>
+<button id="logoutClient" class="button">Logout</button>
+
+<button id="next1" class="button" >Next &raquo;</button>
+<br />
+<div id="logOutTxt"></div>
+
+<script>
+  $("#FirstName").autocomplete({
+    appendMethod:'replace',
+    source:[
+      function( q,add ){
+       $.getJSON("/search?FirstName="+encodeURIComponent(q),function(resp){
+         add(resp)
+       })
+      }
+    ]
+  });
+  $("#LastName").autocomplete({
+    appendMethod:'replace',
+    source:[
+      function( q,add ){
+       $.getJSON("/searchl?LastName="+encodeURIComponent(q),function(resp){
+         add(resp)
+       })
+      }
+    ]
+  });
+
+  $('#verification').hide();
+  $('#next1').hide();
+  $("#logoutClient").hide();
+
+  $('#yes').click(function(event){
+    $('#next1').show();
+    $('#logoutClient').hide();
+  });
+
+  $('#no').click(function(event){
+    $('#next1').hide();
+    $('#logoutClient').show();
+  });
+
+  $("#next1").click(function(event){
+    var FirstName = $("#FirstName").val();
+    var LastName = $("#LastName").val();
+
+    window.FirstName = FirstName;
+    window.LastName = LastName;
+
+    var dataString = 'FirstName='+FirstName+'&LastName='+LastName;
+    $.ajax({
+      type: "GET",
+      url: "/updatedate",
+      data: dataString,
+      success: function(data){
+        $('#body').load('views/shopper/token.html');
+      }
+    });
+  });
+
+
+  $("#myShopperform").submit(function(e) {
+      e.preventDefault();
+      var FirstName = $("#FirstName").val();
+      var LastName = $("#LastName").val();
+      var dataString = 'FirstName='+FirstName+'&LastName='+LastName;
+
+      $.ajax({
+        type: "GET",
+        url: "/user",
+        data: dataString,
+        success: function(data){
+           $('#shopperLogin').hide();
+            if (data.length){
+                var fields = ['FirstName',
+                              'LastName',
+                              'Dependant',
+                              'ChildrenInHousehold',
+                              'SeniorsInHousehold',
+                              'AdultsInHousehold',
+                              'LastAssistanceDate'];
+                var html = '';
+
+                fields.map(function(item){
+                    html += `<li class="list-group-item"><b>${item}: </b> ${data[0][item]}</li>`;
+                });
+
+                $('#shopperContent').html(html);
+
+            } else {
+                  $('#shopperContent').html('<h2 style="text-align:center;"> No data found</h2>');
+                  $('#logoutClient').show();
+            }
+
+          var date = new Date();
+          var LastAssistanceDate = new Date(data[0]['LastAssistanceDate']);
+
+          if ( date.getFullYear() !== LastAssistanceDate.getFullYear() ) {
+            $('#verification').show();
+          }
+          else if ( date.getMonth() !== LastAssistanceDate.getMonth() ) {
+            $('#verification').show();
+          }
+          else {
+            $('#logOutTxt').text("Please see Admin.");
+            $('#logOutTxt').css({fontSize: "30px"});
+            $("#logoutClient").show();
+          }
+        }
+      });
+      return FirstName, LastName;
+  });
+
+  $('#logoutClient').click(function(e){
+    $('#body').load('views/shopper/login.html');
+  });
+</script>

@@ -1,0 +1,21 @@
+  <div id="select" class="nav-center">
+    <ul class="nav nav-pills">
+      <li><a class="button"  id='adminButton' href="#">AdminPage</a></li>
+      <li><a class="button" id='shopperButton' href="#">Shopper</a></li>
+    </ul>
+  </div>
+
+  <script>
+    $('#adminButton').click(function(){
+      $('#logo').hide();
+      $('next1').hide();
+      $('#body').load('views/admin/login.html');
+    });
+
+    $('#shopperButton').click(function(){
+      $('#logo').hide();
+      $('next1').hide();
+      // $("#logoutClient").hide();
+      $('#body').load('views/shopper/login.html');
+    });
+  </script>

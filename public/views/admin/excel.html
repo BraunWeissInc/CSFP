@@ -1,0 +1,52 @@
+<button onclick="goBack()" class="button">Back &raquo;</button>
+<button id="excelPrint" class="btn btn-warning">Export to Excel</button>
+
+<button id="logout" class="button">Logout</button>
+
+<div id="excelValue">
+  <table id="excelResult" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>case</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody id="excelBody"></tbody>
+  </table>
+</div>
+
+<script>
+
+  $.ajax({
+    type: "GET",
+    url: "/excel",
+    success: function(data){
+
+     data.map(function(item){
+        $('#excelBody').append('<tr class= "table table-bordered table-striped"><td>' +item.case+ '</td><td>' +item.FirstName + '</td><td>' +item.LastName+ '</td><td>' +item.Date+ '</td></tr>');
+      });
+    }
+  });
+
+  $('#excelPrint').click(function() {
+    $('#excelResult').table2csv({
+      separator: ',',
+      newline: '\n',
+      quoteFields: true,
+      delivery: 'download',
+      filename: 'table.csv'
+    });
+    $.ajax({
+      type: "GET",
+      url: "/deleteData"
+    });
+    $('#excelResult').table2csv('output',{appendTo: '#out'});
+    $('#excelPrint').hide();
+  });
+  $('#logout').click(function(e){
+    $('#body').load('views/main.html');
+  });
+
+</script>

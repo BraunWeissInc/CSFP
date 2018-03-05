@@ -1,0 +1,28 @@
+<div id="AdminPage">
+  <form method="get" id="adminLogin">
+      <p>UserName <input type="text" id="UserName"></p>
+      <p>Password <input type="password" id="Password"></p>
+      <button type="submit" value="Submit" id="adminSubmit" class="button">Login</button>
+  </form>
+</div>
+
+<script>
+  $("#adminLogin").submit(function(event){
+      event.preventDefault();
+      var UserName = $("#UserName").val();
+      var Password = $("#Password").val();
+
+      var dataString = 'UserName='+UserName+'&Password='+Password;
+
+      $.ajax({
+        type: "GET",
+        url: "/Admin",
+        data: dataString,
+        success: function(data){
+          if(data.length){
+            $('#body').load('views/admin/admin.html');
+          }
+        }
+      });
+  });
+</script>

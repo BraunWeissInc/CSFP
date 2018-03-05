@@ -10,19 +10,24 @@ body {font-family: Verdana, sans-serif;}
 img {vertical-align: middle;} */
 
 .image-container {
-  height: 20%;
-  max-width: 100%;
+  height: 15%;
+  width: 100%;
+  left: 5%;
+  right:5%;
   /* max-height: 35%; */
   display: block;
   position: relative;
-  /* margin: auto; */
+  padding: 0;
+  margin: auto, 0;
 }
 
-#centered {
-  padding: 8px 12px;
+.centered {
+  /* padding: 8px 12px; */
   position: absolute;
   top: 30%;
-  width: 100%;
+  width: 70%;
+  left: 5%;
+  height:80%;
 }
 
 .container{
@@ -32,32 +37,42 @@ img {vertical-align: middle;} */
 }
 
 
-.image-container img{
+img{
   position: relative;
-  height: 40%;
-  max-width: 100%;
+  height: 15%;
+  width: 90%;
   top: 0px;
+  right:0%;
 }
-#logo{
+/* .image-container img{
+  /* position: relative; */
+  /* height:10%;
+  width: 100%;
+  top: 0px;
+} */
+.centered #logo{
   position: absolute;
-  left: 3%;
-  top: 40%;
-  width: 80%;
-  height: 100%;
+  /* left: 5%; */
+  top: 10%;
+  width: 40%;
+  height: 60%;
 }
-.text{
+.centered .text{
   color: #FFFFFF;
-  font-size: 250%;
+  font-size: 300%;
   padding: 8px 12px;
   position: absolute;
+  left: 10%;
   bottom: 30%;
-  width: 100%;
+  width: 80%;
   text-align: center;
 }
-/* #logo img{
-  width: 55%;
-  height:70%; */
-/* } */
+
+
+#logo img{
+  width: 50%;
+  height:100%;
+}
 
 h1 {
     float: center;
@@ -83,7 +98,7 @@ h1 {
 
 }
 
-#login{
+#shopperLogin{
     float: none;
     text-align: center;
 }
@@ -94,11 +109,11 @@ h1 {
 
 .footer#T{
     position:fixed;
-    width: 90%;
-    left: 5%;
-    right: 10%;
+    width: 85%;
+    left: 8%;
+    right: 14%;
     float:center;
-    height: 6%;
+    height: 6.5%;
     bottom:0;
     background: linear-gradient(#C0D449, #619b3e);
     background: -webkit-linear-gradient(#C0D449, #619b3e);
@@ -163,7 +178,11 @@ body .btn btn-warning:hover, body .btn-warning:focus {
   color: black;
 
 }
-
+#update {
+  width: 80%;
+  height: 40%;
+  background-color: #F48220;
+}
 
 .button {
     text-decoration: none;
@@ -181,6 +200,11 @@ body .btn btn-warning:hover, body .btn-warning:focus {
   float: center;
 }
 #logout{
+  top: 78%;
+  right: 129px;
+  float: right;
+}
+#logoutClient{
   top: 78%;
   right: 129px;
   float: right;
